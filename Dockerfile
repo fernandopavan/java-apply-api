@@ -1,7 +1,11 @@
-FROM maven:3.6.3-jdk-8-slim AS build
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 8080
 
-ADD target/java-apply-api-0.0.1-SNAPSHOT.jar java-apply-api-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/java-apply-api-0.0.1-SNAPSHOT.jar
 
-ENTRYPOINT ["java","-jar","java-apply-api-0.0.1-SNAPSHOT.jar"]
+WORKDIR /opt/app
+
+COPY ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java","-jar","app.jar"]
