@@ -13,8 +13,8 @@ public class SourceResource {
     @ApiOperation(value = "Retorna o link do projeto no Github")
     @GetMapping
     public ResponseEntity<String> get() {
-        return ResponseEntity.ok().body("https://github.com/fernandopavan/project-test \n " +
-                "https://github.com/fernandopavan/project-test");
+        return ResponseEntity.ok().body("https://github.com/fernandopavan/java-apply-api \n " +
+                " https://github.com/fernandopavan/java-apply-front");
     }
 
 }

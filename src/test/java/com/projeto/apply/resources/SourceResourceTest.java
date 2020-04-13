@@ -24,8 +24,8 @@ class SourceResourceTest {
     @Test
     void shouldReturnDefaultLinkGitHub() throws Exception {
         mvc.perform(get("/source")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("https://github.com/fernandopavan/project-test \n " +
-                        "https://github.com/fernandopavan/project-test")));
+                .andExpect(content().string(containsString("https://github.com/fernandopavan/java-apply-api \n " +
+                        " https://github.com/fernandopavan/java-apply-front")));
     }
 
 }

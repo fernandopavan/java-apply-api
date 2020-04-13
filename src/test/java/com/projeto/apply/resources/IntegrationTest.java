@@ -20,9 +20,7 @@ class IntegrationTest {
     @Sql({"classpath:db_tests/schema.sql", "classpath:db_tests/insert_pessoa.sql"})
     @Test
     public void testGetById() {
-        PessoaFisica pessoaFisica = this.restTemplate.getForObject("http://localhost:" + port + "/api/pessoas-fisicas/1", PessoaFisica.class);
-
-//        assertEquals("abc@gmail.com", pessoaFisica.getEmail());
+        this.restTemplate.getForObject("http://localhost:" + port + "/api/pessoas-fisicas/1", PessoaFisica.class);
     }
 
 }

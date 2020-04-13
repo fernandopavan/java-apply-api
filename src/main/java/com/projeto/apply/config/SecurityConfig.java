@@ -21,6 +21,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 @EnableWebSecurity
@@ -44,9 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html"
     };
 
-    private static final String[] PUBLIC_MATCHERS_GET = {
-            "/pessoas-fisicas",
-    };
+    private static final String[] PUBLIC_MATCHERS_GET = {};
 
     private static final String[] PUBLIC_MATCHERS_POST = {
             "/auth/forgot/**"
@@ -54,11 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-//        if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
-//            http.headers().frameOptions().disable();
-//        }
-
         http.cors().and().csrf().disable();
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
@@ -79,6 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
         configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
+
+        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+        configuration.setAllowCredentials(true);
+
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
