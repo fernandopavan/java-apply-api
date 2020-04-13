@@ -1,7 +1,7 @@
 package com.projeto.apply.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.projeto.apply.dto.CredenciaisDTO;
+import com.projeto.apply.domain.dto.CredenciaisDTO;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

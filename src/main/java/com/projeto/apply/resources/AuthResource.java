@@ -1,6 +1,6 @@
 package com.projeto.apply.resources;
 
-import com.projeto.apply.dto.EmailDTO;
+import com.projeto.apply.domain.dto.EmailDTO;
 import com.projeto.apply.security.JWTUtil;
 import com.projeto.apply.security.UserSS;
 import com.projeto.apply.services.utils.AuthService;
@@ -34,6 +34,7 @@ public class AuthResource {
         return ResponseEntity.noContent().build();
     }
 
+    //Recuperação de senha
     @PostMapping("/forgot")
     public ResponseEntity<Void> forgot(@Valid @RequestBody EmailDTO objDto) {
         service.sendNewPassword(objDto.getEmail());

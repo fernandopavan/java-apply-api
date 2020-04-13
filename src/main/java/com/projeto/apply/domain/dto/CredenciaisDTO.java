@@ -1,4 +1,4 @@
-package com.projeto.apply.dto;
+package com.projeto.apply.domain.dto;
 
 import java.io.Serializable;
 
