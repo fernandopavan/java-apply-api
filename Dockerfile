@@ -2,10 +2,10 @@ FROM openjdk:8-jdk-alpine
 
 EXPOSE 8080
 
-ARG JAR_FILE=target/java-apply-api-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/java-apply-api-*.jar
 
 WORKDIR /opt/app
 
-COPY ${JAR_FILE} app.jar
+COPY ${JAR_FILE} apply-api.jar
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","apply-api.jar"]
